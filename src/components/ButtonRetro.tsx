@@ -5,6 +5,7 @@ type ButtonRetroProps = {
   color?: "cyan" | "pink" | "blue" | "purple";
   onClick?: () => void;
   size?: "sm" | "md" | "lg";
+  disabled?: boolean;
 };
 
 const colorMap = {
@@ -49,6 +50,7 @@ const ButtonRetro: React.FC<ButtonRetroProps> = ({
   color = "cyan",
   onClick,
   size = "md",
+  disabled = false,
 }) => {
   const styles = colorMap[color];
   const sizeClass = sizeMap[size];
@@ -56,7 +58,14 @@ const ButtonRetro: React.FC<ButtonRetroProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`button-glitch ${sizeClass} bg-[var(--color-bg)] border-2 ${styles.border} ${styles.text} ${styles.bgHover} ${styles.textHover} ${styles.shadow} transition duration-150 ease-in-out`}
+      disabled={disabled}
+      className={`button-glitch ${sizeClass} text-[10px] sm:text-xs break-words text-center whitespace-normal bg-[var(--color-bg)] border-2 ${
+        styles.border
+      } ${styles.text} ${styles.bgHover} ${styles.textHover} ${
+        styles.shadow
+      } transition duration-150 ease-in-out ${
+        disabled ? "opacity-40 pointer-events-none" : ""
+      }`}
     >
       {children}
     </button>

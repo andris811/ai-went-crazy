@@ -119,24 +119,41 @@ function App() {
           </label>
         </div>
 
-        <h1 className="text-2xl sm:text-4xl glitch mb-4 sm:mb-6">
+        <h1 className="text-3xl sm:text-5xl glitch mb-6 sm:mb-8">
           AI WENT CRAZY!
         </h1>
-        <p className="text-[var(--color-text)] text-xs sm:text-sm mb-12 sm:mb-16">
+
+        <p className="text-[var(--color-text)] text-sm sm:text-base mb-14 sm:mb-20 max-w-xl">
           When AI tries its best... and fails spectacularly.
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 w-full max-w-2xl min-h-[80px]">
-          <ButtonRetro color="cyan" onClick={() => handleClick("quote")}>
+          <ButtonRetro
+            color="cyan"
+            onClick={() => handleClick("quote")}
+            disabled={isLoading}
+          >
             RANDOM QUOTE
           </ButtonRetro>
-          <ButtonRetro color="pink" onClick={() => handleClick("mood")}>
-            MOOD DETECTOR
+          <ButtonRetro
+            color="pink"
+            onClick={() => handleClick("mood")}
+            disabled={isLoading}
+          >
+            MOOD SCAN
           </ButtonRetro>
-          <ButtonRetro color="blue" onClick={() => handleClick("advice")}>
+          <ButtonRetro
+            color="blue"
+            onClick={() => handleClick("advice")}
+            disabled={isLoading}
+          >
             BROKEN ADVICE
           </ButtonRetro>
-          <ButtonRetro color="purple" onClick={() => handleClick("truthDare")}>
+          <ButtonRetro
+            color="purple"
+            onClick={() => handleClick("truthDare")}
+            disabled={isLoading}
+          >
             TRUTH OR DARE
           </ButtonRetro>
         </div>
@@ -151,17 +168,18 @@ function App() {
           </div>
         </div>
 
-        {lastCategory && (
-          <div className="mt-4">
+        <div className="h-12 mt-4">
+          {lastCategory && (
             <ButtonRetro
               color={categoryColorMap[lastCategory]}
               size="sm"
               onClick={() => handleClick(lastCategory)}
+              disabled={isLoading}
             >
               GIVE ME ANOTHER!
             </ButtonRetro>
-          </div>
-        )}
+          )}
+        </div>
       </main>
       <Footer />
     </div>
