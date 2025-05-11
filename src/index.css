@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+
+/* Apply base theme */
+:root {
+  --color-text: #213547;
+  --color-bg: #ffffff;
+  --color-accent: #00FFFF;
+}
+
+.dark {
+  --color-text: #39FF14;
+  --color-bg: #000000;
+  --color-accent: #FF00FF;
+}
+
+body {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Glitch effect */
+.glitch {
+  text-shadow: 2px 2px var(--color-accent), -2px -2px var(--color-accent);
+  animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; transform: translateX(1px); }
+}
+
+@keyframes pulse-glitch {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(1px, 0);
+  }
+  66% {
+    transform: translate(-1px, 0);
+  }
+}
+
+.button-glitch:hover {
+  animation: pulse-glitch 0.6s steps(2, end) infinite;
+}
+
+@keyframes glitch-blast {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    color: var(--color-accent);
+  }
+  20% {
+    opacity: 0.8;
+    transform: translate(1px, -2px) scale(1.01);
+    color: #ff00ff;
+  }
+  40% {
+    opacity: 0.5;
+    transform: translate(-2px, 1px) scale(1.02);
+    color: #00ffff;
+  }
+  60% {
+    opacity: 0.9;
+    transform: translate(2px, 2px) scale(1);
+    color: var(--color-accent);
+  }
+  80% {
+    opacity: 0.6;
+    transform: translate(-1px, -1px) scale(0.98);
+    color: #39ff14;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+    color: var(--color-accent);
+  }
+}
+
+.glitch-change {
+  animation: glitch-blast 0.5s ease-in-out;
+  will-change: transform, color, opacity;
+}
+
+@keyframes thinking-flicker {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.03);
+  }
+}
+
+.thinking-animation {
+  animation: thinking-flicker 0.8s infinite ease-in-out;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+
+
+
