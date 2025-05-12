@@ -45,13 +45,11 @@ src/
 │   ├── ButtonRetro.tsx
 │   ├── CategorySelector.tsx
 │   ├── Footer.tsx
-│   ├── OutputBox.tsx
-│   └── ThemeSwitch.tsx
+│   └── OutputBox.tsx
 ├── data/
 │   ├── advice.json
 │   ├── mood.json
 │   ├── quote.json
-│   ├── thinkingMessages.json
 │   └── truthDare.json
 ├── App.tsx
 └── main.tsx

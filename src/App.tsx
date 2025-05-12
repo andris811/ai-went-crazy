@@ -58,7 +58,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-['Press_Start_2P'] flex flex-col items-center justify-center text-center p-6 transition-colors duration-300">
-      <main className="flex-grow flex flex-col items-center justify-center text-center p-6">
+      <main className="relative z-10 flex flex-col items-center justify-center text-center p-6">
+        <img
+          src="smiley-glitch.png"
+          alt="Glitch Stamp"
+          className="fixed top-4 left-4 w-20 sm:w-28  z-0 pointer-events-none select-none drop-shadow-[2px_2px_0px_var(--color-accent)]"
+        />
+
         {/* Toggle Switch */}
         <ThemeSwitch isDark={isDark} toggleDark={() => setIsDark(!isDark)} />
 
